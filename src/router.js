@@ -1,15 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Inicio from './components/Inicio'
-import Sobremi from './components/SobreMi'
-import Contacto from './components/Contacto'
+// import Inicio from './components/Inicio'
+// import Sobremi from './components/SobreMi'
+// import Contacto from './components/Contacto'
 import Post from './components/Post'
-import Articulo from './components/Articulo'
+// import Articulo from './components/Articulo'
 import NotFound from './components/NotFound'
 import Admin from './components/Admin'
 import AdminSimple from './components/AdminSimple'
 import AdminAvanzado from './components/AdminAvanzado'
-const LazyLoading = () => import('./components/LazyLoading')
+// const LazyLoading = () => import('./components/LazyLoading')
+const Inicio = () => import('./components/Inicio')
+const Sobremi = () => import('./components/SobreMi')
+const Contacto = () => import('./components/Contacto')
+const Articulo = () => import('./components/Articulo')
 
 
 
@@ -19,12 +23,7 @@ export default new Router({
     routes: [{
             path: '/',
             component: Inicio,
-            children: [{
-                path: '',
-                component: {
-                    lazyloading: LazyLoading
-                }
-            }]
+            
         },
         {
             path: '/home',
@@ -42,23 +41,11 @@ export default new Router({
             path: '/sobremi',
             component: Sobremi,
             alias: '/acerca',
-            children: [{
-                path: '',
-                component: {
-                    lazyloading: LazyLoading
-                }
-            }]
         },
         {
             path: '/Contacto',
             component: Contacto,
             alias: '/contactame',
-            children: [{
-                path: '',
-                component: {
-                    lazyloading: LazyLoading
-                }
-            }]
         },
         {
             path: '/post/:entrada',
@@ -68,12 +55,6 @@ export default new Router({
                     component: Articulo,
                     name: 'articulo'
                 },
-                {
-                    path: '',
-                    component: {
-                        lazyloading: LazyLoading
-                    }
-                }
             ]
         },
         {
